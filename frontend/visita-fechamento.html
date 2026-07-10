@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECO Sistemas - Fechamento da Visita</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .home-container {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #2F8789;
+            padding-bottom: 40px;
+        }
+
+        .titulo-tela {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #FFFFFF;
+            margin: 16px 0 8px 0;
+        }
+
+        .campo-consultor {
+            width: calc(100% - 48px);
+            max-width: 340px;
+            margin: 8px auto;
+            padding: 12px 16px;
+            border-radius: 8px;
+            background-color: #F0EDE4;
+            color: #000000;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .campo-com-botao {
+            width: calc(100% - 48px);
+            max-width: 340px;
+            margin: 8px auto;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .campo-com-botao input {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: none;
+            background-color: #F0EDE4;
+            color: #000000;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .btn-caneta {
+            width: 48px;
+            height: 48px;
+            background-color: #2BC394;
+            border: 2px solid #004743;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 20px;
+        }
+
+        .btn-caneta:active {
+            opacity: 0.85;
+        }
+
+        .assinatura-preview {
+            width: calc(100% - 48px);
+            max-width: 340px;
+            margin: 4px auto 8px auto;
+            display: none;
+        }
+
+        .assinatura-preview img {
+            width: 100%;
+            border-radius: 8px;
+            border: 2px solid #2BC394;
+        }
+
+        /* TELA DE ASSINATURA */
+        .tela-assinatura {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #2F8789;
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tela-assinatura.ativa {
+            display: flex;
+        }
+
+        .tela-assinatura canvas {
+            background-color: #F0EDE4;
+            border-radius: 8px;
+            border: 2px solid #004743;
+            touch-action: none;
+        }
+
+        .tela-assinatura .instrucao {
+            color: #FFFFFF;
+            font-size: 14px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .botoes-assinatura {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .botoes-assinatura button {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            border: 2px solid #004743;
+        }
+
+        .btn-confirmar-assinatura {
+            background-color: #C5FF41;
+            color: #004743;
+        }
+
+        .btn-apagar-assinatura {
+            background-color: #00FFFF;
+            color: #004743;
+        }
+
+        .btn-voltar-assinatura {
+            background-color: #FFFFFF;
+            color: #004743;
+        }
+
+        @media (min-width: 768px) {
+            .campo-consultor,
+            .campo-com-botao,
+            .assinatura-preview {
+                max-width: 480px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .campo-consultor,
+            .campo-com-botao,
+            .assinatura-preview {
+                max-width: 560px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="home-container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <img src="assets/logo-horizontal.png" alt="ECO Sistemas">
+        <span class="data-local" id="dataAtual"></span>
+    </div>
+
+    <!-- CONTEÚDO -->
+    <div class="conteudo">
+
+        <p class="titulo-tela">Fechamento da Visita Técnica</p>
+
+        <!-- CONSULTOR -->
+        <div class="dropdown-container">
+            <label>Consultor</label>
+        </div>
+        <div class="campo-consultor" id="campoConsultor"></div>
+
+        <!-- NOME DO CLIENTE COM BOTÃO DE ASSINATURA -->
+        <div class="dropdown-container">
+            <label>Nome do cliente</label>
+        </div>
+        <div class="campo-com-botao">
+            <input
+                    type="text"
+                    id="nomeCliente"
+                    placeholder="Nome do cliente"
+                    autocomplete="off"
+            >
+            <button class="btn-caneta" id="btnCaneta" title="Abrir tela de assinatura">
+                ✏️
+            </button>
+        </div>
+
+        <!-- PREVIEW DA ASSINATURA -->
+        <div class="assinatura-preview" id="previewAssinatura">
+            <img id="imagemAssinatura" src="" alt="Assinatura do cliente">
+        </div>
+
+        <!-- FUNÇÃO DO CLIENTE -->
+        <div class="dropdown-container">
+            <label>Função do cliente</label>
+            <select id="selectFuncao">
+                <option value="">Selecione a função</option>
+                <option value="Administrador(a)">Administrador(a)</option>
+                <option value="ACS">ACS</option>
+                <option value="Coordenador(a)">Coordenador(a)</option>
+                <option value="Diretor(a)">Diretor(a)</option>
+                <option value="Enfermeiro(a)">Enfermeiro(a)</option>
+                <option value="Médico(a)">Médico(a)</option>
+                <option value="Tec. Enfermagem">Tec. Enfermagem</option>
+            </select>
+        </div>
+
+        <!-- SETOR ATENDIDO -->
+        <div class="campo-texto">
+            <label>Setor atendido</label>
+            <input
+                    type="text"
+                    id="setorAtendido"
+                    placeholder="Setor atendido"
+                    autocomplete="off"
+            >
+        </div>
+
+        <!-- PRODUTO -->
+        <div class="dropdown-container">
+            <label>Produto / Sistema</label>
+            <select id="selectProduto">
+                <option value="">Selecione o produto</option>
+                <option value="Prime">Prime</option>
+                <option value="SER">SER</option>
+                <option value="Klinikos">Klinikos</option>
+                <option value="Stok">Stok</option>
+                <option value="Mandados Judiciais">Mandados Judiciais</option>
+            </select>
+        </div>
+
+        <!-- BOTÕES -->
+        <button class="btn-salvar" id="btnSalvar">SALVAR</button>
+        <button class="btn-voltar" id="btnVoltar">VOLTAR</button>
+
+    </div>
+</div>
+
+<!-- TELA DE ASSINATURA -->
+<div class="tela-assinatura" id="telaAssinatura">
+    <p class="instrucao">Assine no espaço abaixo usando o dedo</p>
+    <canvas id="canvasAssinatura"></canvas>
+    <div class="botoes-assinatura">
+        <button class="btn-confirmar-assinatura" id="btnConfirmarAssinatura">CONTINUAR</button>
+        <button class="btn-apagar-assinatura" id="btnApagarAssinatura">APAGAR</button>
+        <button class="btn-voltar-assinatura" id="btnVoltarAssinatura">VOLTAR</button>
+    </div>
+</div>
+
+<script src="js/visita-fechamento.js"></script>
+
+</body>
+</html>
