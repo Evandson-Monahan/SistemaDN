@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECO Sistemas - Visita Técnica</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .home-container {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #2F8789;
+            padding-bottom: 40px;
+        }
+
+        .titulo-tela {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #FFFFFF;
+            margin: 16px 0 8px 0;
+        }
+
+        .subtitulo-tela {
+            text-align: center;
+            font-size: 13px;
+            color: #FFFFFF;
+            opacity: 0.75;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="home-container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <img src="assets/logo-horizontal.png" alt="ECO Sistemas">
+        <span class="data-local" id="dataAtual"></span>
+    </div>
+
+    <!-- CONTEÚDO -->
+    <div class="conteudo">
+
+        <p class="titulo-tela">Relatório de Visita Técnica</p>
+        <p class="subtitulo-tela" id="subtituloUnidade"></p>
+
+        <!-- ESTADO DO EQUIPAMENTO -->
+        <div class="campo-texto">
+            <label>Estado em que o equipamento foi encontrado</label>
+            <textarea
+                    id="estadoEquipamento"
+                    placeholder="Descreva o estado em que o equipamento foi encontrado..."
+                    rows="5"
+            ></textarea>
+        </div>
+
+        <!-- O QUE FOI FEITO -->
+        <div class="campo-texto">
+            <label>O que foi feito / Medidas tomadas</label>
+            <textarea
+                    id="servicosRealizados"
+                    placeholder="Descreva o que foi feito e as medidas tomadas..."
+                    rows="5"
+            ></textarea>
+        </div>
+
+        <!-- AVALIAÇÃO DO CLIENTE -->
+        <div class="campo-texto">
+            <label>Avaliação do cliente sobre o atendimento</label>
+            <textarea
+                    id="avaliacaoCliente"
+                    placeholder="Descreva a avaliação do cliente sobre o atendimento..."
+                    rows="5"
+            ></textarea>
+        </div>
+
+        <!-- BOTÕES -->
+        <button class="btn-continuar" id="btnContinuar">CONTINUAR</button>
+        <button class="btn-voltar" id="btnVoltar">VOLTAR</button>
+
+    </div>
+</div>
+
+<script src="js/visita-preenchimento.js"></script>
+
+</body>
+</html>

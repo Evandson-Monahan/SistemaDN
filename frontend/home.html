@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECO Sistemas - Início</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .home-container {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #2F8789;
+            padding-bottom: 40px;
+        }
+
+        .titulo-secao {
+            font-size: 13px;
+            color: #FFFFFF;
+            opacity: 0.75;
+            text-align: center;
+            margin: 16px 0 4px 0;
+            letter-spacing: 0.5px;
+        }
+
+        .campo-leitura {
+            width: calc(100% - 48px);
+            max-width: 340px;
+            margin: 8px auto;
+            padding: 12px 16px;
+            border-radius: 8px;
+            background-color: #F0EDE4;
+            color: #000000;
+            font-size: 14px;
+            min-height: 44px;
+            word-break: break-word;
+        }
+
+        .campo-leitura.corpo {
+            min-height: 100px;
+            line-height: 1.5;
+            overflow-y: auto;
+            max-height: 160px;
+        }
+
+        .separador {
+            width: calc(100% - 48px);
+            max-width: 340px;
+            margin: 16px auto 8px auto;
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        @media (min-width: 768px) {
+            .campo-leitura {
+                max-width: 480px;
+                width: calc(100% - 48px);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .campo-leitura {
+                max-width: 560px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="home-container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <img src="assets/logo-horizontal.png" alt="ECO Sistemas">
+        <span class="data-local" id="dataAtual"></span>
+    </div>
+
+    <!-- CONTEÚDO -->
+    <div class="conteudo">
+
+        <!-- SELEÇÃO DE SMS -->
+        <div class="dropdown-container">
+            <label>Secretaria Municipal de Saúde</label>
+            <select id="selectSms">
+                <option value="">Selecione o SMS</option>
+            </select>
+        </div>
+
+        <!-- SELEÇÃO DE UNIDADE DE SAÚDE -->
+        <div class="dropdown-container">
+            <label>Unidade de Saúde</label>
+            <select id="selectUnidade" disabled>
+                <option value="">Selecione a Unidade</option>
+            </select>
+        </div>
+
+        <!-- SELEÇÃO DE TICKET -->
+        <div class="dropdown-container">
+            <label>Número do Ticket</label>
+            <select id="selectTicket" disabled>
+                <option value="">Sem tickets em aberto</option>
+            </select>
+        </div>
+
+        <hr class="separador">
+
+        <!-- TÍTULO DO CHAMADO -->
+        <p class="titulo-secao">Título do Chamado</p>
+        <div class="campo-leitura" id="campoTitulo">—</div>
+
+        <!-- CORPO DO CHAMADO -->
+        <p class="titulo-secao">Descrição do Chamado</p>
+        <div class="campo-leitura corpo" id="campoCorpo">—</div>
+
+        <hr class="separador">
+
+        <!-- SELEÇÃO DE DN -->
+        <div class="dropdown-container">
+            <label>Documento Normativo (DN)</label>
+            <select id="selectDn" disabled>
+                <option value="">Selecione o tipo de DN</option>
+                <option value="visita">DN25 - Relatório de Visita Técnica</option>
+                <option value="entrega">DN75 - Entrega de Equipamentos</option>
+                <option value="recolha">DN75 - Recolha de Equipamentos</option>
+                <option value="retirada">DN75 - Retirada de Equipamentos</option>
+                <option value="substituicao">DN75B - Substituição de Equipamentos</option>
+                <option value="movimentacao">DN75C - Movimentação de Equipamentos</option>
+            </select>
+        </div>
+
+        <!-- BOTÃO CONTINUAR -->
+        <button class="btn-continuar" id="btnContinuar" style="display:none;">
+            CONTINUAR
+        </button>
+
+    </div>
+</div>
+
+<script src="js/home.js"></script>
+
+</body>
+</html>

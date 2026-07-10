@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECO Sistemas - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .login-container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #2F8789;
+            padding-bottom: 40px;
+        }
+
+        .circulo-login {
+            width: 220px;
+            height: 220px;
+            background-color: #2BC394;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px auto 32px auto;
+            animation: subirCirculo 0.8s ease forwards;
+        }
+
+        .circulo-login img {
+            width: 150px;
+        }
+
+        @keyframes subirCirculo {
+            from {
+                transform: translateY(60px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .titulo-login {
+            font-size: 18px;
+            color: #FFFFFF;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .mensagem-erro {
+            color: #FF4444;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            padding: 10px 16px;
+            font-size: 14px;
+            text-align: center;
+            max-width: 292px;
+            margin: 0 auto 12px auto;
+            display: none;
+        }
+
+        .btn-entrar {
+            background-color: #C5FF41;
+            color: #004743;
+            border: 2px solid #004743;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            max-width: 292px;
+            margin: 16px auto 0 auto;
+            display: block;
+        }
+
+        .btn-entrar:active {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+
+    <div class="circulo-login">
+        <img src="assets/logo-vertical.png" alt="ECO Sistemas">
+    </div>
+
+    <p class="titulo-login">Acesse o Sistema DN</p>
+
+    <div class="mensagem-erro" id="mensagemErro">
+        Login ou senha inválidos.
+    </div>
+
+    <div class="form-login">
+        <input
+                type="text"
+                id="inputLogin"
+                placeholder="Login"
+                autocomplete="off"
+        >
+        <input
+                type="password"
+                id="inputSenha"
+                placeholder="Senha"
+                autocomplete="off"
+        >
+    </div>
+
+    <button class="btn-entrar" id="btnEntrar">ENTRAR</button>
+
+</div>
+
+<script src="js/auth.js"></script>
+
+</body>
+</html>

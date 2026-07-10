@@ -1,0 +1,30 @@
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+
+target/
+.idea/
+.vscode/
+*.class
+*.log
+*.iml
+
+.mvn/wrapper/maven-wrapper.jar
+
+application-local.properties
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Maven
+dependency-reduced-pom.xml
+
+# Arquivos temporários
+*.tmp
+*.bak
+
+# Banco de dados local
+*.mv.db
+*.trace.db
