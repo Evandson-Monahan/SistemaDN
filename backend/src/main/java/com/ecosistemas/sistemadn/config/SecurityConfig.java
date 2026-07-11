@@ -16,6 +16,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/login").permitAll()
                         .requestMatchers("/api/sms").permitAll()
                         .requestMatchers("/api/unidades/**").permitAll()
+                        .requestMatchers("/api/visita").permitAll()
                         .anyRequest().authenticated()
                 );
 
