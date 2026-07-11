@@ -71,19 +71,6 @@
             opacity: 0.85;
         }
 
-        .assinatura-preview {
-            width: calc(100% - 48px);
-            max-width: 340px;
-            margin: 4px auto 8px auto;
-            display: none;
-        }
-
-        .assinatura-preview img {
-            width: 100%;
-            border-radius: 8px;
-            border: 2px solid #2BC394;
-        }
-
         /* TELA DE ASSINATURA */
         .tela-assinatura {
             display: none;
@@ -151,16 +138,14 @@
 
         @media (min-width: 768px) {
             .campo-consultor,
-            .campo-com-botao,
-            .assinatura-preview {
+            .campo-com-botao {
                 max-width: 480px;
             }
         }
 
         @media (min-width: 1024px) {
             .campo-consultor,
-            .campo-com-botao,
-            .assinatura-preview {
+            .campo-com-botao {
                 max-width: 560px;
             }
         }
@@ -201,11 +186,6 @@
             <button class="btn-caneta" id="btnCaneta" title="Abrir tela de assinatura">
                 ✏️
             </button>
-        </div>
-
-        <!-- PREVIEW DA ASSINATURA -->
-        <div class="assinatura-preview" id="previewAssinatura">
-            <img id="imagemAssinatura" src="" alt="Assinatura do cliente">
         </div>
 
         <!-- FUNÇÃO DO CLIENTE -->

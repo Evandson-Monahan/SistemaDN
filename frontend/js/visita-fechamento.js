@@ -47,7 +47,6 @@ function configurarCanvas() {
     canvas = document.getElementById('canvasAssinatura');
     ctx = canvas.getContext('2d');
 
-    // Define o tamanho do canvas baseado na tela
     const largura = Math.min(window.innerWidth - 48, 600);
     const altura = Math.round(largura * 0.4);
     canvas.width = largura;
@@ -98,12 +97,9 @@ function pararDesenho(e) {
 }
 
 function registrarEventosCanvas() {
-    // Touch
     canvas.addEventListener('touchstart', iniciarDesenho, { passive: false });
     canvas.addEventListener('touchmove', desenhar, { passive: false });
     canvas.addEventListener('touchend', pararDesenho, { passive: false });
-
-    // Mouse (para testar no computador)
     canvas.addEventListener('mousedown', iniciarDesenho);
     canvas.addEventListener('mousemove', desenhar);
     canvas.addEventListener('mouseup', pararDesenho);
@@ -119,7 +115,6 @@ document.getElementById('btnCaneta').addEventListener('click', function() {
         alert('Preencha o nome do cliente antes de assinar.');
         return;
     }
-
     const telaAssinatura = document.getElementById('telaAssinatura');
     telaAssinatura.classList.add('ativa');
     configurarCanvas();
@@ -148,13 +143,6 @@ document.getElementById('btnVoltarAssinatura').addEventListener('click', functio
 // =============================================
 document.getElementById('btnConfirmarAssinatura').addEventListener('click', function() {
     assinaturaBase64 = canvas.toDataURL('image/png');
-
-    // Exibe o preview da assinatura na tela de fechamento
-    const previewAssinatura = document.getElementById('previewAssinatura');
-    const imagemAssinatura = document.getElementById('imagemAssinatura');
-    imagemAssinatura.src = assinaturaBase64;
-    previewAssinatura.style.display = 'block';
-
     document.getElementById('telaAssinatura').classList.remove('ativa');
 });
 
@@ -168,7 +156,6 @@ document.getElementById('btnSalvar').addEventListener('click', async function() 
     const setorAtendido = document.getElementById('setorAtendido').value.trim();
     const produto = document.getElementById('selectProduto').value;
 
-    // Validações
     if (nomeCliente === '') {
         alert('Preencha o nome do cliente.');
         return;
@@ -190,7 +177,6 @@ document.getElementById('btnSalvar').addEventListener('click', async function() 
         return;
     }
 
-    // Monta o objeto com todos os dados
     const dados = {
         usuarioId: parseInt(sessionStorage.getItem('usuarioId')),
         unidadeSaudeId: parseInt(sessionStorage.getItem('unidadeId')),
@@ -207,7 +193,6 @@ document.getElementById('btnSalvar').addEventListener('click', async function() 
         assinatura: assinaturaBase64
     };
 
-    // Navega para a tela de fechamento 2 e salva os dados
     sessionStorage.setItem('dadosVisita', JSON.stringify(dados));
     window.location.href = 'visita-concluido.html';
 
