@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECO Sistemas - Entrega de Equipamentos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .home-container {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #2F8789;
+            padding-bottom: 40px;
+        }
+
+        .titulo-tela {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #FFFFFF;
+            margin: 16px 0 8px 0;
+        }
+
+        .subtitulo-tela {
+            text-align: center;
+            font-size: 13px;
+            color: #FFFFFF;
+            opacity: 0.75;
+            margin-bottom: 16px;
+        }
+
+        .secao-label {
+            width: calc(100% - 48px);
+            max-width: 340px;
+            margin: 16px auto 8px auto;
+            font-size: 13px;
+            color: #FFFFFF;
+            font-weight: bold;
+            opacity: 0.9;
+        }
+
+        .grid-dois {
+            width: calc(100% - 48px);
+            max-width: 340px;
+            margin: 4px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .grid-dois input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: none;
+            background-color: #F0EDE4;
+            color: #000000;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .grid-dois input::placeholder {
+            color: #888888;
+        }
+
+        .btn-adicionar {
+            background-color: #2BC394;
+            color: #FFFFFF;
+            border: 2px solid #004743;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            width: calc(100% - 48px);
+            max-width: 340px;
+            margin: 12px auto;
+            display: block;
+        }
+
+        .btn-adicionar:active {
+            opacity: 0.85;
+        }
+
+        .lista-label {
+            width: calc(100% - 48px);
+            max-width: 340px;
+            margin: 8px auto 4px auto;
+            font-size: 13px;
+            color: #FFFFFF;
+            opacity: 0.75;
+        }
+
+        @media (min-width: 768px) {
+            .secao-label,
+            .grid-dois,
+            .btn-adicionar,
+            .lista-label {
+                max-width: 480px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .secao-label,
+            .grid-dois,
+            .btn-adicionar,
+            .lista-label {
+                max-width: 560px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="home-container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <img src="assets/logo-horizontal.png" alt="ECO Sistemas">
+        <span class="data-local" id="dataAtual"></span>
+    </div>
+
+    <!-- CONTEÚDO -->
+    <div class="conteudo">
+
+        <p class="titulo-tela">Entrega de Equipamentos</p>
+        <p class="subtitulo-tela" id="subtituloUnidade"></p>
+
+        <!-- DESCRIÇÃO DO EQUIPAMENTO -->
+        <p class="secao-label">Descrição do equipamento</p>
+
+        <div class="grid-dois">
+            <input type="text" id="patrimonio" placeholder="Patrimônio" autocomplete="off">
+            <input type="text" id="equipamento" placeholder="Equipamento" autocomplete="off">
+        </div>
+
+        <div class="grid-dois">
+            <input type="text" id="marca" placeholder="Marca" autocomplete="off">
+            <input type="text" id="modelo" placeholder="Modelo" autocomplete="off">
+        </div>
+
+        <div class="grid-dois">
+            <input type="text" id="setorAlocado" placeholder="Setor alocado" autocomplete="off">
+            <input type="text" id="verificado" placeholder="Verificado" autocomplete="off">
+        </div>
+
+        <!-- BOTÃO ADICIONAR -->
+        <button class="btn-adicionar" id="btnAdicionar">ADICIONAR</button>
+
+        <!-- LISTA DE EQUIPAMENTOS -->
+        <p class="lista-label">Lista de equipamentos</p>
+        <div class="lista-equipamentos" id="listaEquipamentos"></div>
+
+        <!-- BOTÕES -->
+        <button class="btn-continuar" id="btnContinuar">CONTINUAR</button>
+        <button class="btn-voltar" id="btnVoltar">VOLTAR</button>
+
+    </div>
+</div>
+
+<script src="js/entrega-preenchimento.js"></script>
+
+</body>
+</html>
