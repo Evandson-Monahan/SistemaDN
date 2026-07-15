@@ -134,7 +134,7 @@ Banco de Dados (MySQL)
 | Evandson Vieira Silva de Oliveira | Técnico em Infraestrutura de TI |
 | Breno Pazito do Nascimento | Técnico em Infraestrutura de TI |
 | Carlos Vinícius Mendonça dos Santos | Técnico em Infraestrutura de TI |
-| Gleison Medeiros | Técnico em Infraestrutura de TI |
+| Gleison Pereira de Medeiros | Analista em Infraestrutura de TI |
 
 ---
 
