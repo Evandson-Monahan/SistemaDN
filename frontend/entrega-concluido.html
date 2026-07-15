@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECO Sistemas - Chamado Atendido</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .home-container {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #2F8789;
+            padding-bottom: 40px;
+        }
+
+        .titulo-tela {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #FFFFFF;
+            margin: 16px 0 8px 0;
+        }
+
+        .area-central {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            gap: 24px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="home-container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <img src="assets/logo-horizontal.png" alt="ECO Sistemas">
+        <span class="data-local" id="dataAtual"></span>
+    </div>
+
+    <!-- CONTEÚDO -->
+    <div class="conteudo">
+
+        <p class="titulo-tela">Fechamento da Entrega</p>
+
+        <div class="area-central">
+
+            <!-- ÍCONE DE LOADING -->
+            <div class="loading" id="iconeLoading"></div>
+
+            <!-- ALERTA DE CHAMADO ATENDIDO -->
+            <div class="alerta-atendido" id="alertaAtendido" style="display:none;">
+                <p class="titulo">CHAMADO ATENDIDO!</p>
+                <p>O chamado foi atendido e salvo.</p>
+                <p>Bom trabalho.</p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script src="js/entrega-concluido.js"></script>
+
+</body>
+</html>
